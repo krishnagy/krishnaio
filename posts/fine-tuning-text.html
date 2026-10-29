@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fine-tuning a small transformer for text classification · Krishna</title>
+  <meta name="description" content="Hugging Face, a small model, and an evaluation I could trust.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="page post">
+    <a class="back" href="../index.html#j-h">&larr; Journal</a>
+    <article>
+      <h1>Fine-tuning a small transformer for text classification</h1>
+      <p class="when">Week 14</p>
+
+<p>I fine-tuned DistilBERT to classify short support-style messages. A small model was enough, and it trained on a single modest GPU.</p>
+<h2>What mattered</h2>
+<ul>
+<li>A TF-IDF plus logistic regression baseline, which scored <mark class="fill">baseline F1</mark>. The transformer reached <mark class="fill">transformer F1</mark>.</li>
+<li>Per-class F1, not just overall accuracy, since classes were imbalanced.</li>
+<li>Reading about fifty wrong predictions by hand. Many were genuinely ambiguous labels.</li>
+</ul>
+<h2>Takeaway</h2>
+<p>The gain over the simple baseline was real but not huge. For a production system I would weigh that gain against inference cost and latency.</p>
+    </article>
+    <nav class="post-nav" aria-label="Posts"><a href="transfer-learning.html">&larr; Transfer learning</a><a href="serving-a-model.html">Serving a model &rarr;</a></nav>
+  </main>
+</body>
+</html>

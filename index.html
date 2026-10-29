@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krishna · Machine learning engineer notebook</title>
+  <meta name="description" content="Krishna's working notebook: intermediate-level machine learning projects and a journal of how I learned them.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+  <header class="cover">
+    <div class="page">
+      <p class="book-id">Working notebook, vol. 1</p>
+      <h1>Krishna</h1>
+      <dl class="fill-in">
+        <div><dt>Works on</dt><dd>Machine learning engineering</dd></div>
+        <div><dt>Covers</dt><dd>Tabular models, deep learning with PyTorch, text classification, model serving</dd></div>
+        <div><dt>Looking for</dt><dd>Junior to mid-level ML engineer roles</dd></div>
+        <div><dt>Method</dt><dd>Baseline first, honest validation, write down what failed</dd></div>
+      </dl>
+      <nav class="links" aria-label="Elsewhere">
+        <a href="mailto:you@example.com">Email</a>
+        <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+        <a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
+        <a href="resume.pdf">Résumé (PDF)</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="projects" class="page" aria-labelledby="p-h">
+      <h2 id="p-h">Projects</h2>
+      <p class="lede">Each project states the problem, what I built, and what it ran on.</p>
+      <article class="entry">
+        <header><h3>Project 1: Customer churn prediction pipeline</h3><p class="when">Tabular ML</p></header>
+        <p><strong>Problem.</strong> Predict which customers are likely to leave, using only information available at prediction time.</p>
+        <p><strong>Built.</strong> A scikit-learn pipeline with a logistic regression baseline and XGBoost, time-based validation, and MLflow experiment tracking. Final PR-AUC <mark class="fill">value</mark>.</p>
+        <p class="stack"><strong>Ran on.</strong> Python, pandas, scikit-learn, XGBoost, MLflow. <a href="posts/first-real-model.html">Read the journal posts</a>.</p>
+      </article>
+      <article class="entry">
+        <header><h3>Project 2: Image classifier with transfer learning</h3><p class="when">Computer vision</p></header>
+        <p><strong>Problem.</strong> Classify images from a small dataset where training from scratch overfits.</p>
+        <p><strong>Built.</strong> A fine-tuned ResNet with staged unfreezing and augmentation, plus an error analysis that surfaced mislabeled data. Validation accuracy <mark class="fill">value</mark>.</p>
+        <p class="stack"><strong>Ran on.</strong> Python, PyTorch, torchvision. <a href="posts/transfer-learning.html">Read the write-up</a>.</p>
+      </article>
+      <article class="entry">
+        <header><h3>Project 3: Support message classifier</h3><p class="when">NLP</p></header>
+        <p><strong>Problem.</strong> Route short text messages into categories with imbalanced classes.</p>
+        <p><strong>Built.</strong> DistilBERT fine-tuned with Hugging Face, compared against a TF-IDF baseline with per-class F1. Macro F1 <mark class="fill">value</mark>.</p>
+        <p class="stack"><strong>Ran on.</strong> Python, Hugging Face Transformers, scikit-learn. <a href="posts/fine-tuning-text.html">Read the write-up</a>.</p>
+      </article>
+      <article class="entry">
+        <header><h3>Project 4: Model serving API</h3><p class="when">MLOps</p></header>
+        <p><strong>Problem.</strong> Make a trained model callable by other software and reproducible on another machine.</p>
+        <p><strong>Built.</strong> A FastAPI service with input validation, a health check, tests, and a Docker image that bundles the full pipeline.</p>
+        <p class="stack"><strong>Ran on.</strong> Python, FastAPI, Pydantic, Docker, MLflow. <a href="posts/serving-a-model.html">Read the write-up</a>.</p>
+      </article>
+    </section>
+    <section class="page" aria-labelledby="j-h">
+      <h2 id="j-h">Journal</h2>
+      <p class="lede">How I learned this, in order, including the mistakes.</p>
+      <ul class="journal">
+        <li><span class="when">Week 1</span><div><a href="posts/starting-point.html">Starting point: what I knew and what I didn't</a><p>Taking stock before picking a learning path.</p></div></li>
+        <li><span class="when">Week 3</span><div><a href="posts/first-real-model.html">First real model: the baseline came first</a><p>Logistic regression before gradient boosting, and why.</p></div></li>
+        <li><span class="when">Week 5</span><div><a href="posts/validation-score-lied.html">The week my validation score lied</a><p>A suspiciously good result, and the leaked feature behind it.</p></div></li>
+        <li><span class="when">Week 8</span><div><a href="posts/pytorch-from-scratch.html">Moving to PyTorch: write the training loop yourself</a><p>Why I skipped high-level trainers at first.</p></div></li>
+        <li><span class="when">Week 11</span><div><a href="posts/transfer-learning.html">Transfer learning: an image classifier on a small dataset</a><p>Fine-tuning a pretrained network instead of training from zero.</p></div></li>
+        <li><span class="when">Week 14</span><div><a href="posts/fine-tuning-text.html">Fine-tuning a small transformer for text classification</a><p>Hugging Face, a small model, and an evaluation I could trust.</p></div></li>
+        <li><span class="when">Week 17</span><div><a href="posts/serving-a-model.html">Serving a model: FastAPI, Docker, and what I forgot to monitor</a><p>Getting a model out of the notebook.</p></div></li>
+      </ul>
+    </section>
+    <section class="page" aria-labelledby="m-h">
+      <h2 id="m-h">Methods</h2>
+      <table>
+        <caption>Tools I use, grouped by the kind of work.</caption>
+        <thead><tr><th scope="col">Work</th><th scope="col">Tools</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Data</th><td>Python, NumPy, pandas, SQL</td></tr>
+          <tr><th scope="row">Classical ML</th><td>scikit-learn, XGBoost, cross-validation, pipelines</td></tr>
+          <tr><th scope="row">Deep learning</th><td>PyTorch, torchvision, Hugging Face Transformers</td></tr>
+          <tr><th scope="row">Shipping</th><td>FastAPI, Docker, MLflow, Git, pytest</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="page" aria-labelledby="c-h">
+      <h2 id="c-h">Write to me</h2>
+      <p>For ML engineering roles, email <a href="mailto:you@example.com">you@example.com</a>.</p>
+    </section>
+  </main>
+  <footer class="page"><p>© <span id="yr">2026</span> Krishna</p></footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

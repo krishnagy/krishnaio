@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moving to PyTorch: write the training loop yourself · Krishna</title>
+  <meta name="description" content="Why I skipped high-level trainers at first.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="page post">
+    <a class="back" href="../index.html#j-h">&larr; Journal</a>
+    <article>
+      <h1>Moving to PyTorch: write the training loop yourself</h1>
+      <p class="when">Week 8</p>
+
+<p>I wrote a plain training loop for a small classifier instead of using a trainer wrapper. It was slower to start and taught me more.</p>
+<pre>for epoch in range(epochs):
+    model.train()
+    for xb, yb in train_loader:
+        optimizer.zero_grad()
+        loss = loss_fn(model(xb), yb)
+        loss.backward()
+        optimizer.step()</pre>
+<h2>Debugging habit that paid off</h2>
+<p>When loss would not fall, I tried to overfit a single batch. If the model cannot memorise sixteen examples, the problem is in the code, not the data. Twice it was a missing <code>zero_grad()</code> and a wrong label dtype.</p>
+<h2>Also learned</h2>
+<p>Seed everything, log every run, and keep train and eval modes straight. Forgetting <code>model.eval()</code> gave me noisy validation numbers for a full day.</p>
+    </article>
+    <nav class="post-nav" aria-label="Posts"><a href="validation-score-lied.html">&larr; The week my validation score lied</a><a href="transfer-learning.html">Transfer learning &rarr;</a></nav>
+  </main>
+</body>
+</html>

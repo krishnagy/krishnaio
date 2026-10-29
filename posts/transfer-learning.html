@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transfer learning: an image classifier on a small dataset · Krishna</title>
+  <meta name="description" content="Fine-tuning a pretrained network instead of training from zero.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="page post">
+    <a class="back" href="../index.html#j-h">&larr; Journal</a>
+    <article>
+      <h1>Transfer learning: an image classifier on a small dataset</h1>
+      <p class="when">Week 11</p>
+
+<p>With only <mark class="fill">N images</mark> per class, training from scratch overfit immediately. I moved to a pretrained ResNet and replaced the final layer.</p>
+<h2>What I tried, in order</h2>
+<ul>
+<li>Freeze the backbone, train only the new head.</li>
+<li>Unfreeze the last block with a much lower learning rate.</li>
+<li>Add light augmentation: flips, small crops, colour jitter.</li>
+</ul>
+<h2>Result</h2>
+<p>Validation accuracy reached <mark class="fill">your accuracy</mark>. The confusion matrix showed two classes being mixed up, so I looked at the misclassified images and found mislabeled examples in the data. Cleaning those helped more than another round of tuning.</p>
+    </article>
+    <nav class="post-nav" aria-label="Posts"><a href="pytorch-from-scratch.html">&larr; Moving to PyTorch</a><a href="fine-tuning-text.html">Fine-tuning a small transformer for text classification &rarr;</a></nav>
+  </main>
+</body>
+</html>
